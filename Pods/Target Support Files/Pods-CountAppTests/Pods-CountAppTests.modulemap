@@ -1,0 +1,6 @@
+framework module Pods_CountAppTests {
+  umbrella header "Pods-CountAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
