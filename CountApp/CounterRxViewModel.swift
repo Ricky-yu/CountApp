@@ -14,6 +14,8 @@ struct CounterViewModelInput {
     let countUpButton: Observable<Void>
     let countDownButton: Observable<Void>
     let countResetButton: Observable<Void>
+    let countTenButton: Observable<Void>
+    let countDownTenButton: Observable<Void>
 }
 
 protocol CounterViewModelOutput {
@@ -35,10 +37,13 @@ class CounterRxViewModel: CounterViewModelType {
     
     init() {
         self.outputs = self
-        resetCount()
+        let count = UserDefaults.standard.integer(forKey: "Count")
+        countRelay.accept(count)
     }
     
     func setup(input: CounterViewModelInput) {
+        
+        
         input.countUpButton
             .subscribe(onNext: {[weak self] in
                 self?.incrementCount()
@@ -51,6 +56,18 @@ class CounterRxViewModel: CounterViewModelType {
         input.countResetButton.subscribe(onNext: {[weak self] in
             self?.resetCount()
         }).disposed(by:disposeBag)
+        
+        input.countTenButton.subscribe(onNext: {[weak self] in
+            self?.incrementTenCount()
+        }).disposed(by: disposeBag)
+        
+        input.countDownTenButton.subscribe(onNext: {[weak self] in
+            self?.decrementTenCount()
+        }).disposed(by: disposeBag)
+    }
+    
+    func saveCount() {
+        UserDefaults.standard.set(countRelay.value,forKey: "Count")
     }
     
     private func incrementCount() {
@@ -58,13 +75,22 @@ class CounterRxViewModel: CounterViewModelType {
         countRelay.accept(count)
     }
     
-    func decrementCount() {
+    private func decrementCount() {
         let count = countRelay.value - 1
         countRelay.accept(count)
     }
     
-    func resetCount() {
+    private func resetCount() {
         countRelay.accept(initialCount)
+    }
+    
+    private func incrementTenCount() {
+        let count = countRelay.value + 10
+        countRelay.accept(count)
+    }
+    private func decrementTenCount() {
+        let count = countRelay.value - 10
+        countRelay.accept(count)
     }
     
 }

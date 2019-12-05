@@ -10,8 +10,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="CountApp" customModuleProvider="target">
             <connections>
                 <outlet property="countDownButton" destination="Qib-ZL-bBM" id="Uc3-b6-a4f"/>
+                <outlet property="countDownTenButton" destination="Z4y-Gz-04e" id="4Ue-OS-dH0"/>
                 <outlet property="countLabel" destination="Fh9-22-wsz" id="oy9-VM-Oxa"/>
                 <outlet property="countResetButton" destination="2AM-7b-ipZ" id="Kkp-Ck-1PR"/>
+                <outlet property="countTenButton" destination="VUd-Rt-GwZ" id="Z79-Wu-Xr1"/>
                 <outlet property="countUpButton" destination="5Ut-9C-jdw" id="mXK-qP-SJl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jeq-Ig-J14"/>
             </connections>
@@ -42,6 +44,14 @@
                     </constraints>
                     <state key="normal" title="リセット"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUd-Rt-GwZ">
+                    <rect key="frame" x="115" y="395" width="30" height="30"/>
+                    <state key="normal" title="+10"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4y-Gz-04e">
+                    <rect key="frame" x="279" y="395" width="30" height="30"/>
+                    <state key="normal" title="-10"/>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh9-22-wsz">
                     <rect key="frame" x="137" y="60" width="148" height="28"/>
                     <constraints>
@@ -57,8 +67,12 @@
             <constraints>
                 <constraint firstItem="5Ut-9C-jdw" firstAttribute="top" secondItem="Fh9-22-wsz" secondAttribute="bottom" constant="95" id="3Ox-p0-KQG"/>
                 <constraint firstItem="Qib-ZL-bBM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6FD-ab-yYe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Z4y-Gz-04e" secondAttribute="trailing" constant="105" id="8Fd-iG-LZB"/>
+                <constraint firstItem="Z4y-Gz-04e" firstAttribute="baseline" secondItem="VUd-Rt-GwZ" secondAttribute="baseline" id="Ats-dX-UKJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VUd-Rt-GwZ" secondAttribute="bottom" constant="311" id="EhO-vs-YJU"/>
                 <constraint firstItem="5Ut-9C-jdw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GKM-cJ-BPN"/>
                 <constraint firstItem="Fh9-22-wsz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="4" id="esg-4K-UkZ"/>
+                <constraint firstItem="VUd-Rt-GwZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="115" id="jao-uG-fnh"/>
                 <constraint firstItem="Qib-ZL-bBM" firstAttribute="top" secondItem="5Ut-9C-jdw" secondAttribute="bottom" constant="96" id="o4z-tN-Y9F"/>
                 <constraint firstItem="Fh9-22-wsz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="rjV-qB-CWK"/>
                 <constraint firstItem="2AM-7b-ipZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="s78-ib-iFH"/>

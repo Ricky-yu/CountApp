@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var countResetButton: UIButton!
     
+    @IBOutlet weak var countTenButton: UIButton!
+    
+    @IBOutlet weak var countDownTenButton: UIButton!
+    
     private let disposeBag = DisposeBag()
     
     private var viewModel: CounterRxViewModel!
@@ -34,13 +38,19 @@ class ViewController: UIViewController {
         let input = CounterViewModelInput(
             countUpButton: countUpButton.rx.tap.asObservable(),
             countDownButton: countDownButton.rx.tap.asObservable(),
-            countResetButton: countResetButton.rx.tap.asObservable()
+            countResetButton: countResetButton.rx.tap.asObservable(),
+            countTenButton: countTenButton.rx.tap.asObservable(),
+            countDownTenButton: countDownTenButton.rx.tap.asObservable()
         )
         
         viewModel.setup(input: input)
         
         viewModel.outputs?.counterText.drive(countLabel.rx.text).disposed(by: disposeBag)
     }
+
     
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel.saveCount()
+    }
 
 }
